@@ -3,10 +3,11 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.internal.DaggerCollections
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var car: Car
+    @Inject lateinit var car: Car
     private lateinit var carComponent : CarComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         carComponent = DaggerCarComponent.create()
 
-        car = carComponent.getCar()
+        carComponent.inject(this)
 
         car.drive()
 
