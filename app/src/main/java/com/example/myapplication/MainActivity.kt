@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject lateinit var car: Car
+    private lateinit var car: Car
     private lateinit var carComponent : CarComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         carComponent = DaggerCarComponent.create()
 
-        carComponent.inject(this)
+        car = carComponent.getCar()
 
         car.drive()
 

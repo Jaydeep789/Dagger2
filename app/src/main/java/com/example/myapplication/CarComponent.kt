@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import dagger.Component
 
-@Component
+@Component(modules = [WheelsModule::class])
 interface CarComponent {
     fun getCar() : Car
 

@@ -5,9 +5,9 @@ import javax.inject.Inject
 
 class Car @Inject constructor(val wheels: Wheels, val engine: Engine) {
 
-    val TAG1 : String = "Car"
+    private val tag1 : String = "Car"
 
     fun drive(){
-        Log.d(TAG1,"Driving...")
+        Log.d(tag1,"Driving...")
     }
 }
