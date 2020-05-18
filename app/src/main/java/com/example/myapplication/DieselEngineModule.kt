@@ -5,7 +5,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
-    @Binds
-    abstract fun providesDieselEngine(dieselEngine: DieselEngine): Engine
+class DieselEngineModule constructor(private val horsePower: Int) {
+
+    @Provides
+    fun providesDieselEngine(): Engine {
+        return DieselEngine(horsePower)
+    }
 }
