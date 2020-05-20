@@ -7,20 +7,22 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var car: Car
-    private lateinit var carComponent : CarComponent
+    private lateinit var car1: Car
+    private lateinit var car2: Car
+    private lateinit var carComponent1 : CarComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        carComponent = DaggerCarComponent.builder().horsePower(120)
+        carComponent1 = DaggerCarComponent.builder().horsePower(120)
             .engineCapacity(1400)
             .build()
 
-        car = carComponent.getCar()
-
-        car.drive()
+        car1 = carComponent1.getCar()
+        car2 = carComponent1.getCar()
+        car1.drive()
+        car2.drive()
 
     }
 }
