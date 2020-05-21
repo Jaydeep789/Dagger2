@@ -9,7 +9,8 @@ class DriverModule {
 
     @Provides
     @Singleton
-    fun provideDriver() : Driver{
+    fun provideDriver(): Driver {
         return Driver()
     }
+
 }

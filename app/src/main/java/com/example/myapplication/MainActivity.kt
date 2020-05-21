@@ -13,11 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        activityComponent1 = DaggerActivityComponent.builder()
-            .horsePower(120)
-            .engineCapacity(1400)
-            .appComponent((application as ExampleApp).getAppComponent())
-            .build()
+        activityComponent1 = ((application as ExampleApp).getAppComponent()).getActivityComponent(DieselEngineModule(120));
 
         car1 = activityComponent1.getCar()
         car2 = activityComponent1.getCar()
