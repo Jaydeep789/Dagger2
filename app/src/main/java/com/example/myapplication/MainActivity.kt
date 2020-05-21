@@ -13,7 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        activityComponent1 = ((application as ExampleApp).getAppComponent()).getActivityComponent(DieselEngineModule(120));
+        activityComponent1 = ((application as ExampleApp).getAppComponent()).getActivityComponent()
+            .horsePower(120)
+            .engineCapacity(1400)
+            .build()
 
         car1 = activityComponent1.getCar()
         car2 = activityComponent1.getCar()
